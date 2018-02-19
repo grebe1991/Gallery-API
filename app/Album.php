@@ -15,4 +15,8 @@ class Album extends Model
         $this->belongsTo('User');
     }
 
+    public function photos()
+    {
+        $this->hasMany('Photo');
+    }
 }
