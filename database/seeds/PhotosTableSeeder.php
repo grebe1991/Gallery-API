@@ -15,7 +15,7 @@ class PhotosTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // And now, let's create a few articles in our database:
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             Photo::create([
                 'album_id' => $faker->numberBetween(0, 10),
                 'path' => $faker->url,

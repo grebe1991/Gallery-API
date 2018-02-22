@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         $password = Hash::make('im2bad4u');
 
         // And now, let's create a few articles in our database:
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             User::create([
                 'first_name' => $faker->name,
                 'last_name' => $faker->name,

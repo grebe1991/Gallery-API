@@ -1,7 +1,6 @@
 <?php
 
 use Faker\Generator as Faker;
-use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +13,9 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Photo::class, function (Faker $faker) {
     return [
-        'first_name' => $faker->name,
-        'last_name' =>$faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => 'im2bad4u',
-        'remember_token' => str_random(10),
+        'album_id' => $faker->numberBetween(0, 10),
+        'path' => $faker->url
     ];
 });

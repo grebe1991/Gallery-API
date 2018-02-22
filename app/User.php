@@ -39,4 +39,11 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    public function invalidateApiToken()
+    {
+        $this->api_token = null;
+        $this->save();
+        
+    }
 }

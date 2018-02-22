@@ -18,7 +18,7 @@ class AlbumsTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         // And now, let's create a few articles in our database:
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             Album::create([
                 'album_name' => $faker->name,
                 'album_description' => $faker->paragraph,

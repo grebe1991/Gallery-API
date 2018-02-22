@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -46,8 +47,8 @@ class LoginController extends Controller
             $user = $this->guard()->user();
             $user->generateToken();
             return response()->json([
-            'data' => $user->toArray()
-                        ]);
+                        'data' => $user->toArray()
+                    ]);
         }
 
         return $this->sendFailedLoginResponse($request);
@@ -55,11 +56,8 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $user = Auth::guard('api')->user();
-
-        if ($user) {
-            $user->api_token = null;
-            $user->save();
+        if ($user = Auth::guard('api')->user()) {
+            $user->invalidateApiToken();
         }
 
         return response()->json(['data' => 'User logged out.'], 200);
