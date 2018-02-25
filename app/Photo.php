@@ -6,12 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model
 {
-    protected $fillable = [
-        'path'
-    ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function album()
     {
         return $this->belongsTo('App\Album');
+    }
+
+    // todo
+    public function saveToCloud()
+    {
+
     }
 }

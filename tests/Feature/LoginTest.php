@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\User;
+use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
@@ -22,7 +22,7 @@ class LoginTest extends TestCase
 
     public function testUserLoginsSuccessfully()
     {
-        $user = factory(User::class)->create([
+        factory(User::class)->create([
             'email' => 'grebenita@gmail.com',
             'password' => bcrypt('im2bad4u'),
         ]);
